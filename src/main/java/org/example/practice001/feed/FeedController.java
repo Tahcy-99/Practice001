@@ -19,4 +19,10 @@ public class FeedController {
         List<FeedDto.ListRes> dto = feedService.list();
         return ResponseEntity.ok(BaseResponse.success(dto));
     }
+
+    @PostMapping("/reg")
+    public ResponseEntity reg(@RequestBody FeedDto.FeedReg dto){
+        feedService.reg(dto);
+        return ResponseEntity.ok(BaseResponse.success("등록 성공"));
+    }
 }
