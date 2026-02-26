@@ -11,16 +11,12 @@ import static org.example.practice001.common.model.BaseResponseStatus.SUCCESS;
 @Setter
 @AllArgsConstructor
 public class BaseResponse<T> {
-    private Boolean success;
-    private Integer code;
-    private String message;
+    private Boolean isSuccess;
     private T result;
 
     public static <T> BaseResponse success(T result) {
         return new BaseResponse(
                 SUCCESS.isSuccess(),
-                SUCCESS.getCode(),
-                SUCCESS.getMessage(),
                 result
         );
     }
@@ -28,8 +24,6 @@ public class BaseResponse<T> {
     public static <T> BaseResponse fail(BaseResponseStatus status) {
         return new BaseResponse(
                 status.isSuccess(),
-                status.getCode(),
-                status.getMessage(),
                 null
         );
     }
@@ -37,8 +31,6 @@ public class BaseResponse<T> {
     public static <T> BaseResponse fail(BaseResponseStatus status, T result) {
         return new BaseResponse(
                 status.isSuccess(),
-                status.getCode(),
-                status.getMessage(),
                 result
         );
     }

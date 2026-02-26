@@ -1,0 +1,28 @@
+package org.example.practice001.feed.model;
+
+import lombok.Builder;
+import lombok.Getter;
+import org.example.practice001.user.model.User;
+
+public class FeedDto {
+
+    @Builder
+    @Getter
+    public static class ListRes{
+    private Long idx;
+    private String title;
+    private String writer;
+    private int replyCount;
+    private int likesCount;
+
+    public static ListRes toDto(Feed entity){
+        return ListRes.builder()
+                .idx(entity.getIdx())
+                .title(entity.getTitle())
+                .writer(entity.getUser().getName())
+                .replyCount(entity.getReplyCount())
+                .likesCount(entity.getLikesCount())
+                .build();
+        }
+    }
+}
