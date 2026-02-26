@@ -2,6 +2,7 @@ package org.example.practice001.feed.model;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.example.practice001.likes.model.Likes;
 import org.example.practice001.user.model.User;
 
 public class FeedDto {
@@ -21,7 +22,7 @@ public class FeedDto {
                 .title(entity.getTitle())
                 .writer(entity.getUser().getName())
                 .replyCount(entity.getReplyCount())
-                .likesCount(entity.getLikesCount())
+                .likesCount(entity.likesList.size())
                 .build();
         }
     }
