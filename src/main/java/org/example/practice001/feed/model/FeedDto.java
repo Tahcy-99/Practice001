@@ -31,13 +31,11 @@ public class FeedDto {
     public static class FeedReg {
         private String title;
         private String contents;
-        private String writer;
 
         public Feed toEntity(){
             return Feed.builder()
                     .title(this.title)
                     .contents(this.contents)
-                    .user(User.builder().name(this.writer).build())
                     .build();
         }
     }
